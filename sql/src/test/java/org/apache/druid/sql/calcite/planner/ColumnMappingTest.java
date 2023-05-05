@@ -17,26 +17,17 @@
  * under the License.
  */
 
-package org.apache.druid.msq.indexing;
+package org.apache.druid.sql.calcite.planner;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.apache.druid.segment.IndexSpec;
-import org.apache.druid.segment.data.CompressionStrategy;
 import org.junit.Test;
 
-public class MSQSpecTest
+public class ColumnMappingTest
 {
-
   @Test
   public void testEquals()
   {
-    EqualsVerifier.forClass(MSQSpec.class)
-                  .withNonnullFields("query", "destination", "tuningConfig")
-                  .withPrefabValues(
-                      IndexSpec.class,
-                      IndexSpec.DEFAULT,
-                      IndexSpec.builder().withDimensionCompression(CompressionStrategy.ZSTD).build()
-                  )
+    EqualsVerifier.simple().forClass(ColumnMapping.class)
                   .usingGetClass()
                   .verify();
   }
