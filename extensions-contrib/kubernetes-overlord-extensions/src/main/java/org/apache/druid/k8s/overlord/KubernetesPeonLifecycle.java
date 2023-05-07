@@ -213,7 +213,7 @@ public class KubernetesPeonLifecycle
   protected TaskLocation getTaskLocation()
   {
     if (!State.RUNNING.equals(state.get())) {
-      log.debug("Can't get task location for non-running job. [%s]", state.get());
+      log.debug("Can't get task location for non-running job. [%s]", taskId.getOriginalTaskId());
       return TaskLocation.unknown();
     }
 
